@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>background color changer </title>
+</head>
+<style>
+    div{
+       margin-left: 40%;
+      
+
+    }
+    #start{
+       
+       
+        border-radius: 10px;
+      padding: 10px;
+        font-size: 200%;
+    }
+    #stop{
+       margin-left: 20px;
+        border-radius: 10px;
+      padding: 10px;
+        font-size: 200%;
+    }
+    h1{
+        display: flex;
+        justify-content: center;
+      color: white;
+        align-items:  center;
+        background-color: green;
+        padding: 10px;
+        border-radius: 5px;
+        width: 50%;
+        margin-left: 28%;
+        
+    }
+    
+</style>
+<body>
+   
+    <h1>
+        Backgrund color change in every secound 
+    </h1>
+    <div>
+
+    <button  id="start">start</button>
+    
+    <button id="stop">Stop</button>
+</div>
+    
+</body>
+<script>
+
+  
+    const randomcolor =function (){
+        const hex = "0123456789ABCDEF"
+        let color ="#"
+
+        
+        for(let i =0; i<6; i++){
+             color += hex[Math.floor(Math.random()*16)]
+        }
+        return color;
+    };
+
+
+    let intervalid;
+    const startchangingcolor =function(){
+       
+        if(!intervalid){
+            intervalid=setInterval(bgcolorchanger  ,1000);
+
+        }
+     
+       function bgcolorchanger () {
+            document.body.style.backgroundColor = randomcolor();
+        } 
+        
+        
+        
+    };
+
+    const stopchangingcolor =function(){
+     
+clearInterval(intervalid)
+intervalid=null;
+    };
+
+   
+    
+    document.getElementById("start").addEventListener('click' ,startchangingcolor)
+    document.getElementById("stop").addEventListener('click' ,stopchangingcolor)
+</script>
+</html>
